@@ -22,4 +22,24 @@ public class ServiceLocator : IServiceLocator
         }
         return false;
     }
+
+    public bool RegisterService<T>(T service)
+    {
+        if (!_services.ContainsKey(typeof(T)))
+        {
+            //_services.Add(typeof(T), service);
+            return true;
+        }
+        return false;
+    }
+
+    public bool RemoveService<T>(T service)
+    {
+        if (_services.ContainsKey(typeof(T)))
+        {
+            _services.Remove(typeof(T));
+            return true;
+        }
+        return false;
+    }
 }
