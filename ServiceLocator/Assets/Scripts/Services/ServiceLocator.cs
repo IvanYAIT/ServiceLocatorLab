@@ -1,7 +1,5 @@
 using System;
-using System.Collections;
 using System.Collections.Generic;
-using UnityEngine;
 
 public class ServiceLocator : IServiceLocator
 {
@@ -27,7 +25,7 @@ public class ServiceLocator : IServiceLocator
     {
         if (!_services.ContainsKey(typeof(T)))
         {
-            //_services.Add(typeof(T), service);
+            _services.Add(typeof(T), (IGameService)service);
             return true;
         }
         return false;

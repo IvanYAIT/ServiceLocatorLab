@@ -3,7 +3,6 @@ using deVoid.Utils;
 public class MainMenu : IUIState
 {
     private MainMenuView _view;
-    private FadeService _fadeService;
     private SoundPlayer _soundPlayer;
     private MainMenuSignal signal;
     private UISwitcher _uISwitcher;
@@ -12,7 +11,6 @@ public class MainMenu : IUIState
     {
         _view = view;
         _uISwitcher = uISwitcher;
-        locator.GetService(out _fadeService);
         locator.GetService(out _soundPlayer);
         signal = Signals.Get<MainMenuSignal>();
     }
@@ -25,8 +23,9 @@ public class MainMenu : IUIState
 
     public void Exit()
     {
-        _view.GetAdditionalPanel().gameObject.SetActive(true);
-        _fadeService.FadeIn(_view.GetAdditionalPanel(), _view.GetDuration());
+        _view.SetActivePanel(true);
+        _view.FadeIn();
+
         _soundPlayer.PlayOpenSound();
         _view.RemoveListener(signal.Dispatch);
         Signals.Get<MainMenuSignal>().RemoveListener(ChangeOnAdditionalMenu);
