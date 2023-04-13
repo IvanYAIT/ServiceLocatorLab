@@ -24,6 +24,9 @@ public class Bootstrapper : MonoBehaviour
 
         ServiceLocator serviceLocator = new ServiceLocator(_services);
 
+        additionalMenuView.Construct(serviceLocator);
+        mainMenuView.Construct(serviceLocator);
+
         UIStateInitializer initializer = new UIStateInitializer(serviceLocator, mainMenuView, additionalMenuView, _score);
         UISwitcher uISwitcher = new UISwitcher(initializer);
 
