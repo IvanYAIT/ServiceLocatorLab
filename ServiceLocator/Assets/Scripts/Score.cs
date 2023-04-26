@@ -1,9 +1,12 @@
+using Zenject;
+
 public class Score
 {
     private ScoreView _view;
 
     public int ScoreAmount { get; private set; }
 
+    [Inject]
     public Score(ScoreView view)
     {
         _view = view;

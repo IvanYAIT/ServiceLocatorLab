@@ -1,5 +1,6 @@
 using deVoid.Utils;
 using System;
+using Zenject;
 
 public class AdditionalMenu : IUIState
 {
@@ -13,14 +14,15 @@ public class AdditionalMenu : IUIState
     private UISwitcher _uISwitcher;
     private Score _score;
 
-    public AdditionalMenu(ServiceLocator locator, AdditionalMenuView view, UISwitcher uISwitcher, Score score)
+    [Inject]
+    public AdditionalMenu(PlayerPrefsSaver playerPrefsSaver, JSONSaver jSONSaver, SoundPlayer soundPlayer, AdditionalMenuView view, UISwitcher uISwitcher, Score score)
     {
         _view = view;
         _uISwitcher = uISwitcher;
         _score = score;
-        locator.GetService(out _soundPlayer);
-        locator.GetService(out _playerPrefsSaver);
-        locator.GetService(out _jSONSaver);
+        _soundPlayer = soundPlayer;
+        _playerPrefsSaver = playerPrefsSaver;
+        _jSONSaver = jSONSaver;
         signal = Signals.Get<AdditionalMenuSignal>();
     }
 

@@ -2,6 +2,7 @@ using DG.Tweening;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.UI;
+using Zenject;
 
 public class MainMenuView : MonoBehaviour
 {
@@ -11,9 +12,10 @@ public class MainMenuView : MonoBehaviour
 
     private FadeService _fadeService;
 
-    public void Construct(ServiceLocator locator)
+    [Inject]
+    public void Construct(FadeService fadeService)
     {
-        locator.GetService(out _fadeService);
+        _fadeService = fadeService;
     }
 
     public void FadeIn() =>

@@ -1,4 +1,5 @@
 using deVoid.Utils;
+using Zenject;
 
 public class MainMenu : IUIState
 {
@@ -7,11 +8,12 @@ public class MainMenu : IUIState
     private MainMenuSignal signal;
     private UISwitcher _uISwitcher;
 
-    public MainMenu(ServiceLocator locator, MainMenuView view, UISwitcher uISwitcher)
+    [Inject]
+    public MainMenu(SoundPlayer soundPlayer, MainMenuView view, UISwitcher uISwitcher)
     {
         _view = view;
         _uISwitcher = uISwitcher;
-        locator.GetService(out _soundPlayer);
+        _soundPlayer = soundPlayer;
         signal = Signals.Get<MainMenuSignal>();
     }
 
