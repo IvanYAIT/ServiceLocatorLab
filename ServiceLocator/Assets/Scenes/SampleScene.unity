@@ -1339,8 +1339,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3e04ffb867d8f424ebf1ef2f2978baaf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  openSound: {fileID: 2051161520}
-  closeSound: {fileID: 291383587}
+  audio: {fileID: 1551764800}
   mainMenuView: {fileID: 456284562}
   additionalMenuView: {fileID: 456284563}
   scoreView: {fileID: 456284565}
@@ -1357,7 +1356,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _scriptableObjectInstallers: []
-  _monoInstallers: []
+  _monoInstallers:
+  - {fileID: 1204456241}
   _installerPrefabs: []
   _autoRun: 1
   OnPreInstall:
@@ -1569,6 +1569,52 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1428372665}
   m_CullTransparentMesh: 1
+--- !u!1 &1551764799
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1551764801}
+  - component: {fileID: 1551764800}
+  m_Layer: 0
+  m_Name: Audio
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1551764800
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1551764799}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0f44221161de0af439e8920db6a2fde8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  openSound: {fileID: 2051161520}
+  closeSound: {fileID: 291383587}
+--- !u!4 &1551764801
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1551764799}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 469.05927, y: 252.68883, z: 3.6394584}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 8
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1620079978
 GameObject:
   m_ObjectHideFlags: 0

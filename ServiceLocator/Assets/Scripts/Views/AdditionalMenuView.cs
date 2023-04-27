@@ -10,10 +10,10 @@ public class AdditionalMenuView : MonoBehaviour
     [SerializeField] private Image additionalPanel;
     [SerializeField] private float duration;
 
-    private FadeService _fadeService;
+    private IFadeService _fadeService;
 
     [Inject]
-    public void Construct(FadeService fadeService)
+    public void Construct(IFadeService fadeService)
     {
         _fadeService = fadeService;
     }

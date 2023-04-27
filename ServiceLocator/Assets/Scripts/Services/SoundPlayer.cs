@@ -6,10 +6,11 @@ public class SoundPlayer : ISoundPlayer
     private AudioSource _openSound;
     private AudioSource _closeSound;
 
-    public SoundPlayer([Inject(Id ="OpenSound")] AudioSource openSound, [Inject(Id = "CloseSound")] AudioSource closeSound)
+    [Inject]
+    public SoundPlayer(AudioSourceSecneData audio)
     {
-        _openSound = openSound;
-        _closeSound = closeSound;
+        _openSound = audio.OpenSound;
+        _closeSound = audio.CloseSound;
     }
 
     public void PlayCloseSound() =>

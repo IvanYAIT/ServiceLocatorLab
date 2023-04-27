@@ -7,15 +7,14 @@ public class AdditionalMenu : IUIState
     private const string PATH = "/Assets/ScoreData.json";
 
     private AdditionalMenuView _view;
-    private SoundPlayer _soundPlayer;
+    private ISoundPlayer _soundPlayer;
     private PlayerPrefsSaver _playerPrefsSaver;
     private JSONSaver _jSONSaver;
     private AdditionalMenuSignal signal;
     private UISwitcher _uISwitcher;
     private Score _score;
 
-    [Inject]
-    public AdditionalMenu(PlayerPrefsSaver playerPrefsSaver, JSONSaver jSONSaver, SoundPlayer soundPlayer, AdditionalMenuView view, UISwitcher uISwitcher, Score score)
+    public AdditionalMenu(PlayerPrefsSaver playerPrefsSaver, JSONSaver jSONSaver, ISoundPlayer soundPlayer, AdditionalMenuView view, UISwitcher uISwitcher, Score score)
     {
         _view = view;
         _uISwitcher = uISwitcher;

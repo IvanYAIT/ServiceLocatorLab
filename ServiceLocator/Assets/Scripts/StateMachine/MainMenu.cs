@@ -4,12 +4,11 @@ using Zenject;
 public class MainMenu : IUIState
 {
     private MainMenuView _view;
-    private SoundPlayer _soundPlayer;
+    private ISoundPlayer _soundPlayer;
     private MainMenuSignal signal;
     private UISwitcher _uISwitcher;
 
-    [Inject]
-    public MainMenu(SoundPlayer soundPlayer, MainMenuView view, UISwitcher uISwitcher)
+    public MainMenu(ISoundPlayer soundPlayer, MainMenuView view, UISwitcher uISwitcher)
     {
         _view = view;
         _uISwitcher = uISwitcher;

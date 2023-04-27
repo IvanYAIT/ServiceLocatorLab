@@ -10,7 +10,7 @@ public class UISwitcher
     [Inject]
     public UISwitcher(UIStateInitializer initializer)
     {
-        _states = initializer.States;
+        _states = initializer.Init(this);
         ChageState(typeof(MainMenu));
     }
 
